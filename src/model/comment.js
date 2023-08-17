@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const commentScheme = new mongoose.Schema(
   {
@@ -15,4 +15,4 @@ const commentScheme = new mongoose.Schema(
 const Comment =
   mongoose.models.Comment || mongoose.model("Comment", commentScheme);
 
-module.exports = Comment;
+export default Comment;

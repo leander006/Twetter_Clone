@@ -1,7 +1,6 @@
-const Tweet = require("../model/tweet");
+import Tweet from "../model/tweet";
 
 class TweetRepository {
-  
   async create(data) {
     try {
       const res = await Tweet.create(data);
@@ -46,7 +45,6 @@ class TweetRepository {
       throw error;
     }
   }
-
 }
 
-module.exports = TweetRepository;
+export default TweetRepository;
