@@ -1,6 +1,6 @@
-import Tweet from "../model/tweet";
+import Tweet from "../model/tweet.js";
 
-class TweetRepository {
+export default class TweetRepository {
   async create(data) {
     try {
       const res = await Tweet.create(data);
@@ -46,5 +46,3 @@ class TweetRepository {
     }
   }
 }
-
-export default TweetRepository;
