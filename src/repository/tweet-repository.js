@@ -1,17 +1,10 @@
 const Tweet = require("../model/tweet");
 
-class TweetReposirtory {
+class TweetRepository {
+  
   async create(data) {
     try {
       const res = await Tweet.create(data);
-      return res;
-    } catch (error) {
-      throw error;
-    }
-  }
-  async upadte(id, data) {
-    try {
-      const res = await Tweet.findByIdAndUpdate(id, data, { new: true });
       return res;
     } catch (error) {
       throw error;
@@ -53,6 +46,7 @@ class TweetReposirtory {
       throw error;
     }
   }
+
 }
 
-module.exports = TweetReposirtory;
+module.exports = TweetRepository;
