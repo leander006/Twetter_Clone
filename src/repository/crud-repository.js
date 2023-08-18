@@ -27,6 +27,14 @@ export default class CrudRepository {
       throw error;
     }
   }
+  async get() {
+    try {
+      const res = await this.model.find({});
+      return res;
+    } catch (error) {
+      throw error;
+    }
+  }
   async update(id, data) {
     try {
       const result = await this.model.findByIdAndUpdate(id, data, {

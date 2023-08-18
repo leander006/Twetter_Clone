@@ -23,4 +23,13 @@ export default class TweetRepository extends CrudRepository {
       throw error;
     }
   }
+
+  async getByLikes(id) {
+    try {
+      const res = await Tweet.findById(id).populate("likes");
+      return res;
+    } catch (error) {
+      throw error;
+    }
+  }
 }
