@@ -15,13 +15,13 @@ app.use("/api", apiRoutes);
 app.listen(PORT, async (req, res) => {
   await connect();
 
-  const repo = new LikeService();
-  const likes = await repo.toggleLike(
-    "64df477c873bbf89a7724465",
-    "Tweet",
-    "64df46b30f8e294b1d51d63b"
-  );
-  console.log("likes ", likes);
+  // const repo = new LikeService();
+  // const likes = await repo.toggleLike(
+  //   "64df477c873bbf89a7724465",
+  //   "Tweet",
+  //   "64df46b30f8e294b1d51d63b"
+  // );
+  // console.log("likes ", likes);
   // repo.create({
   //   name: "leander",
   //   email: "leander@gmail.com",
