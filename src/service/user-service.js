@@ -13,4 +13,30 @@ export default class UserService {
       throw error;
     }
   }
+
+  async getByEmail(email, password) {
+    try {
+      const user = await this.UserRepository.getByEmail(email);
+      if (!user) {
+        throw {
+          success: false,
+          message: "No user found",
+          data: {},
+          err: "Something went wrong in signin",
+        };
+      }
+      if (!user.comparePassword(password)) {
+        throw {
+          success: false,
+          message: "Incorrect password",
+          data: {},
+          err: "Something went wrong in signin",
+        };
+      }
+      const token = user.genJWT();
+      return token;
+    } catch (error) {
+      throw error;
+    }
+  }
 }

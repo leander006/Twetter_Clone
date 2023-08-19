@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
-import { SALT } from "../config/server-config.js";
+import { SALT, SECRET } from "../config/server-config.js";
+import JWT from "jsonwebtoken";
 const userScheme = new mongoose.Schema(
   {
     name: {
@@ -28,6 +29,16 @@ userScheme.pre("save", function (next) {
   user.password = encryptedPassword;
   next();
 });
+
+userScheme.methods.comparePassword = function compare(password) {
+  return bcrypt.compareSync(password, this.password);
+};
+
+userScheme.methods.genJWT = function generate() {
+  return JWT.sign({ id: this._id, email: this.email }, SECRET, {
+    expiresIn: "1h",
+  });
+};
 
 const User = mongoose.models.User || mongoose.model("User", userScheme);
 
