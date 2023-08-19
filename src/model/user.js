@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
-
+import bcrypt from "bcrypt";
+import { SALT } from "../config/server-config.js";
 const userScheme = new mongoose.Schema(
   {
     name: {
@@ -20,6 +21,13 @@ const userScheme = new mongoose.Schema(
     timestamps: true,
   }
 );
+
+userScheme.pre("save", function (next) {
+  const user = this;
+  const encryptedPassword = bcrypt.hashSync(user.password, SALT);
+  user.password = encryptedPassword;
+  next();
+});
 
 const User = mongoose.models.User || mongoose.model("User", userScheme);
 
