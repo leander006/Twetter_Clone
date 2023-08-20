@@ -9,7 +9,6 @@ export const toggleLike = async (req, res) => {
       req.query.modelType,
       req.user.id
     );
-    console.log("response ", response);
     return res.status(201).json({
       success: true,
       message: "Successfully toggle like",

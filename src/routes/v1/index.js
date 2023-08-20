@@ -12,5 +12,5 @@ router.get("/tweets/:id", getTweet);
 router.post("/like/toggle", authenticate, toggleLike);
 router.post("/signup", signup);
 router.post("/login", signin);
-router.post("/comments", createComment);
+router.post("/comments", authenticate, createComment);
 export default router;
