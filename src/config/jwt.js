@@ -1,6 +1,6 @@
 import JWT from "passport-jwt";
-import User from "../model/user";
-import { SECRET } from "./server-config";
+import User from "../model/user.js";
+import { SECRET } from "./server-config.js";
 
 const JwtStrategy = JWT.Strategy;
 const ExtractJwt = JWT.ExtractJwt;
@@ -10,7 +10,7 @@ const opts = {
   secretOrKey: SECRET,
 };
 
-export const passport = async (passport) => {
+export const passportAuth = async (passport) => {
   passport.use(
     new JwtStrategy(opts, async (jwt_payload, done) => {
       const user = await User.findById(jwt_payload.id);

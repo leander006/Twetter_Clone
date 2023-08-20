@@ -7,7 +7,7 @@ export const toggleLike = async (req, res) => {
     const response = await likeService.toggleLike(
       req.query.modelId,
       req.query.modelType,
-      req.body.userId
+      req.user.id
     );
     console.log("response ", response);
     return res.status(201).json({
