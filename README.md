@@ -19,3 +19,7 @@
 - Pagination on tweets
 - User auth
 - Every tweet might be having a hashtag
+
+# Use this link if test is not working
+
+https://how-to.dev/how-to-set-up-jest-for-es-module
