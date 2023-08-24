@@ -42,7 +42,6 @@ export const getTweet = async (req, res) => {
       err: {},
     });
   } catch (error) {
-    console.log(error);
     return res.status(500).json({
       success: false,
       message: "Something went wrong while fetching tweet",
