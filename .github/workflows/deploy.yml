@@ -4,9 +4,10 @@ on:
     branches: main
 
 jobs:
-  Run-npm-on-Ubuntu:
+  build:
     name: Run npm on Ubuntu
     runs-on: ubuntu-latest
+    
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
