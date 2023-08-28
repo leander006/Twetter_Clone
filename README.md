@@ -23,3 +23,8 @@
 # Use this link if test is not working
 
 https://how-to.dev/how-to-set-up-jest-for-es-module
+
+## Refer this website for CICD template
+
+https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners
+
